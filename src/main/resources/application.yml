@@ -28,41 +28,32 @@ spring:
       hibernate:
         format_sql: true
     show-sql: true
-
-    mybatis:
-      mapper-locations:
-        - classpath:mapper/**.xml
-      configuration:
-        map-underscore-to-camel-case: true
+  mybatis:
+    mapper-locations:
+      - classpath:mapper/**.xml
+    configuration:
+      map-underscore-to-camel-case: true
 
 ---
-  spring:
-    config:
-      activate:
-        on-profile: mysql
+
+spring:
+  config:
+    activate:
+      on-profile: mysql
   datasource:
     url: jdbc:mysql://localhost:3306/board
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: root1234
-
-    jpa:
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
       hibernate:
-        ddl-auto: create
-      properties:
-        hibernate:
-          format_sql: true
-      show-sql: true
-
-      mybatis:
-        mapper-locations:
-          - classpath:mapper/**.xml
-        configuration:
-          map-underscore-to-camel-case: true
-
-
-
-
-
-
-
+        format_sql: true
+    show-sql: true
+  mybatis:
+    mapper-locations:
+      - classpath:mapper/**.xml
+    configuration:
+      map-underscore-to-camel-case: true
