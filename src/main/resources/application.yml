@@ -8,19 +8,16 @@ server:
 ---
 
 spring:
-  config:
-    activate:
-      on-profile: local
+  profiles: local
   h2:
     console:
       enabled: true
       path: /db
   datasource:
     driver-class-name: org.h2.Driver
-    url: jdbc:h2:~/test
+    url: jdbc:h2:mem:testdb
     username: sa
     password:
-
   jpa:
     hibernate:
       ddl-auto: create
@@ -33,18 +30,43 @@ spring:
       - classpath:mapper/**.xml
     configuration:
       map-underscore-to-camel-case: true
+server:
+  port: 8080
+
+#---
+#
+#spring:
+#  profiles: mysql
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/board
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    username: root
+#    password: root1234
+#  jpa:
+#    hibernate:
+#      ddl-auto: create
+#    properties:
+#      hibernate:
+#        format_sql: true
+#    show-sql: true
+#  mybatis:
+#    mapper-locations:
+#      - classpath:mapper/**.xml
+#    configuration:
+#      map-underscore-to-camel-case: true
 
 ---
 
 spring:
-  config:
-    activate:
-      on-profile: mysql
+  profiles: admin
   datasource:
-    url: jdbc:mysql://localhost:3306/board
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    password: root1234
+    url: jdbc:h2:mem:testdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
   jpa:
     hibernate:
       ddl-auto: create
@@ -57,3 +79,5 @@ spring:
       - classpath:mapper/**.xml
     configuration:
       map-underscore-to-camel-case: true
+server:
+  port: 9000
