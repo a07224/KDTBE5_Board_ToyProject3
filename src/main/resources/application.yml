@@ -3,8 +3,6 @@ server:
     encoding:
       charset: utf-8
       force: true
-  port: 8080
-
 ---
 
 spring:
@@ -12,24 +10,30 @@ spring:
   h2:
     console:
       enabled: true
-      path: /db
   datasource:
     driver-class-name: org.h2.Driver
     url: jdbc:h2:mem:testdb
     username: sa
     password:
+  sql:
+    init:
+      schema-locations:
+        - classpath:db/table.sql
+      data-locations:
+        - classpath:db/data.sql
   jpa:
+    defer-datasource-initialization: true
     hibernate:
       ddl-auto: create
     properties:
       hibernate:
         format_sql: true
-    show-sql: true
-  mybatis:
-    mapper-locations:
-      - classpath:mapper/**.xml
-    configuration:
-      map-underscore-to-camel-case: true
+        show-sql: true
+mybatis:
+  mapper-locations:
+    - classpath:mapper/**.xml
+  configuration:
+    map-underscore-to-camel-case: true
 server:
   port: 8080
 
@@ -64,20 +68,27 @@ spring:
     driver-class-name: org.h2.Driver
     username: sa
     password:
+  sql:
+    init:
+      schema-locations:
+        - classpath:db/table.sql
+      data-locations:
+        - classpath:db/data.sql
   h2:
     console:
       enabled: true
   jpa:
+    defer-datasource-initialization: true
     hibernate:
       ddl-auto: create
     properties:
       hibernate:
         format_sql: true
-    show-sql: true
-  mybatis:
-    mapper-locations:
-      - classpath:mapper/**.xml
-    configuration:
-      map-underscore-to-camel-case: true
+        show-sql: true
+mybatis:
+  mapper-locations:
+    - classpath:mapper/**.xml
+  configuration:
+    map-underscore-to-camel-case: true
 server:
   port: 9000
