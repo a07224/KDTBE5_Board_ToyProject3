@@ -1,1 +1,2 @@
-INSERT INTO users(user_id, user_name, user_password, email, nickname, created_at, update_at) values('aaa', 'aa', 'aaa', 'aaa', 'aa', now(), now());
+INSERT INTO users(user_id, user_name, user_password, email, nickname, created_at, update_at) values('aaa', 'aa', 'aaa', 'a07224@naver.com', 'aa', now(), now());
+INSERT INTO users(user_id, user_name, user_password, email, nickname, created_at, update_at) values('bbb', 'bb', 'bbb', 'bbb', 'bb', now(), now());

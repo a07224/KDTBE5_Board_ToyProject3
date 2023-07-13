@@ -1,5 +1,6 @@
 package com.board.domain.admin.service;
 
+import com.board.domain.admin.dto.EmailDto;
 import com.board.domain.admin.dto.UserDto;
 import com.board.domain.admin.mapper.AdminMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,5 +22,15 @@ public class AdminServiceImpl implements AdminService{
     @Override
     public List<UserDto> findAllUser() throws Exception{
         return adminMapper.findAllUser();
+    }
+
+    @Override
+    public String selectUserEmail(String userId) throws Exception{
+        return adminMapper.selectUserEmail(userId);
+    }
+
+    @Override
+    public void insertEmail(EmailDto emailDto)throws Exception{
+        adminMapper.insertEmail(emailDto);
     }
 }

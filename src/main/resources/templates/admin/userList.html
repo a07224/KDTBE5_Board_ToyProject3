@@ -21,6 +21,7 @@
             <th scope="col">이름</th>
             <th scope="col">닉네임</th>
             <th scope="col">이메일</th>
+            <th scope="col">이메일 보내기</th>
             <th scope="col">등급</th>
             <th scope="col">회원가입날짜</th>
             <th scope="col">업데이트날짜</th>
@@ -32,6 +33,9 @@
             <td class="totle" th:text="${list.userName}"></td>
             <td th:text="${list.nickname}"></td>
             <td th:text="${list.email}"></td>
+            <td>
+                <a href="sendEmail?user_id=" th:attrappend="href=${list.userId}" class="btn">이메일<br>보내기</a>
+            </td>
             <td th:text="${list.role}"></td>
             <td th:text="${list.createdAt}"></td>
             <td th:text="${list.updateAt}"></td>

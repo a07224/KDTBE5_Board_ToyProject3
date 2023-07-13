@@ -9,3 +9,10 @@ CREATE TABLE users(
     created_at timestamp,
     update_at timestamp
 );
+CREATE TABLE mail(
+    id int auto_increment primary key,
+    email_id varchar,
+    title varchar,
+    contents varchar,
+    created_at timestamp
+);

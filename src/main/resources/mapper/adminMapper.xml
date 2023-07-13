@@ -10,4 +10,12 @@
         select user_id, user_name, nickname, email, role, created_at, update_at from users
     </select>
 
+    <select id="selectUserEmail" parameterType="String" resultType="String">
+        SELECT email from users where user_id=#{user_id}
+    </select>
+
+    <insert id="insertEmail" parameterType="com.board.domain.admin.dto.EmailDto">
+        INSERT INTO mail (email_id, title, contents, created_at) values (#{email_id}, #{title}, #{contents}, now())
+    </insert>
+
 </mapper>
