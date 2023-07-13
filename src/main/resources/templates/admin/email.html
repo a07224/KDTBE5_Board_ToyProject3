@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" th:href="@{/css/board.css}"/>
+  <title>Insert title here</title>
+</head>
+<body>
+<div class="container">
+  <h2>이메일 보내기</h2>
+  <form id="frm" name="frm" method="post" action="/admin/email">
+    <table class="email_detail">
+      <tr>
+        <th scope="row">받는이</th>
+        <td th:text="${userEmail}"></td>
+      </tr>
+      <tr>
+        <th scope="row">제목</th>
+        <td><input type="text" id="title" name="title"/></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <textarea id="contents" name="contents"></textarea>
+        </td>
+      </tr>
+    </table>
+    <a href="email" class="btn">이메일<br>보내기</a>
+  </form>
+</div>
+</body>
+</html>
